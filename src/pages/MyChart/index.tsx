@@ -1,4 +1,4 @@
-import { listMyChartByPageUsingPOST } from '@/services/libi/chartController';
+import { listMyChartByPageUsingPost } from '@/services/libi/chartController';
 import { useModel } from '@@/exports';
 import { Avatar, Card, List, message, Result } from 'antd';
 import Search from 'antd/es/input/Search';
@@ -33,7 +33,7 @@ const MyChartPage: React.FC = () => {
     // 当触发搜索,把loading设置为true
     setLoading(true);
     try {
-      const res = await listMyChartByPageUsingPOST(searchParams);
+      const res = await listMyChartByPageUsingPost(searchParams);
       if (res.data) {
         setChartList(res.data.records ?? []);
         setTotal(res.data.total ?? 0);

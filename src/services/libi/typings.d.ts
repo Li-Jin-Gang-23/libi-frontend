@@ -64,6 +64,12 @@ declare namespace API {
     message?: string;
   };
 
+  type BaseResponsePostVO_ = {
+    code?: number;
+    data?: PostVO;
+    message?: string;
+  };
+
   type BaseResponseString_ = {
     code?: number;
     data?: string;
@@ -145,8 +151,25 @@ declare namespace API {
     userId?: number;
   };
 
+  type checkUsingGETParams = {
+    /** echostr */
+    echostr?: string;
+    /** nonce */
+    nonce?: string;
+    /** signature */
+    signature?: string;
+    /** timestamp */
+    timestamp?: string;
+  };
+
   type DeleteRequest = {
     id?: number;
+  };
+
+  type genChartByAiAsyncMqUsingPOSTParams = {
+    chartType?: string;
+    goal?: string;
+    name?: string;
   };
 
   type genChartByAiAsyncUsingPOSTParams = {
@@ -162,6 +185,11 @@ declare namespace API {
   };
 
   type getChartByIdUsingGETParams = {
+    /** id */
+    id?: number;
+  };
+
+  type getPostVOByIdUsingGETParams = {
     /** id */
     id?: number;
   };
@@ -243,6 +271,19 @@ declare namespace API {
     total?: number;
   };
 
+  type PostAddRequest = {
+    content?: string;
+    tags?: string[];
+    title?: string;
+  };
+
+  type PostEditRequest = {
+    content?: string;
+    id?: number;
+    tags?: string[];
+    title?: string;
+  };
+
   type PostFavourAddRequest = {
     postId?: number;
   };
@@ -274,6 +315,13 @@ declare namespace API {
 
   type PostThumbAddRequest = {
     postId?: number;
+  };
+
+  type PostUpdateRequest = {
+    content?: string;
+    id?: number;
+    tags?: string[];
+    title?: string;
   };
 
   type PostVO = {

@@ -1,4 +1,4 @@
-import { genChartByAiAsyncUsingPOST } from '@/services/libi/chartController';
+import {genChartByAiAsyncMqUsingPost, genChartByAiAsyncUsingPOST} from '@/services/libi/chartController';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Card, Form, Input, message, Select, Space, Upload } from 'antd';
 import { useForm } from 'antd/es/form/Form';
@@ -34,7 +34,9 @@ const AddChartAsync: React.FC = () => {
     };
     try {
       // 需要取到上传的原始数据file→file→originFileObj(原始数据)
-      const res = await genChartByAiAsyncUsingPOST(params, {}, values.file.file.originFileObj);
+      // const res = await genChartByAiAsyncUsingPOST(params, {}, values.file.file.originFileObj);
+      // 需要取到上传的原始数据file→file→originFileObj(原始数据)
+      const res = await genChartByAiAsyncMqUsingPost(params, {}, values.file.file.originFileObj);
       // 正常情况下，如果没有返回值就分析失败，有，就分析成功
       if (!res?.data) {
         message.error('分析失败');

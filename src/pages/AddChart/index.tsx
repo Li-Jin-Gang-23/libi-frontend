@@ -1,4 +1,4 @@
-import { genChartByAiUsingPOST } from '@/services/libi/chartController';
+import { genChartByAiUsingPost } from '@/services/libi/chartController';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Card, Col, Divider, Form, Input, message, Row, Select, Space, Spin, Upload } from 'antd';
 import TextArea from 'antd/es/input/TextArea';
@@ -40,7 +40,7 @@ const AddChart: React.FC = () => {
     };
     try {
       // 需要取到上传的原始数据file→file→originFileObj(原始数据)
-      const res = await genChartByAiUsingPOST(params, {}, values.file.file.originFileObj);
+      const res = await genChartByAiUsingPost(params, {}, values.file.file.originFileObj);
       // 正常情况下，如果没有返回值就分析失败，有，就分析成功
       if (!res?.data) {
         message.error('分析失败');
